@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Glassmorphism Effect for the Container */
+.container {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent */
+    padding: 25px;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    backdrop-filter: blur(10px); /* Glass effect */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Glowing effect on focus */
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Links */
+a {
+    display: block;
+    margin-top: 12px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Smooth fade-in animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌙 Dark Mode Styles */
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode .container {
+    background: rgba(30, 30, 30, 0.8);
+    color: white;
+}
+
+.dark-mode input {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.dark-mode input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-mode button {
+    background: #ff9800;
+}
+
+.dark-mode button:hover {
+    background: #ffb74d;
+}
+
+/* 🌙 Dark Mode Toggle Button */
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#dark-mode-toggle:hover {
+    background: #555;
+}

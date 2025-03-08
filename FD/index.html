@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TaskApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body ng-controller="LoginController">
+
+   
+
+    <div class="container">
+        <h2>Login</h2>
+        <form ng-submit="login()">
+            <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" ng-model="user.email" placeholder="Username">
+            </div>
+            <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" ng-model="user.password" placeholder="Password">
+            </div>
+            <button class="btn">Login</button>
+        </form>
+        
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+    </div>
+</body>
+</html>

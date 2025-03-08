@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TaskApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="RegisterController">
+
+    <div class="container">
+        <h2>Register</h2>
+        <form ng-submit="register()">
+            <input type="text" ng-model="user.username" placeholder="Username" required>
+            <input type="email" ng-model="user.email" placeholder="Email" required>
+            <input type="password" ng-model="user.password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- "Already have an account?" button -->
+        <button class="login-btn" onclick="window.location.href='index.html'">
+            Already have an account? Login
+        </button>
+    </div>
+
+</body>
+</html>

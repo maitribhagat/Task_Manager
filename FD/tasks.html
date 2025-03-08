@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html ng-app="TaskApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      h2 {
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      input {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 250px;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #218838;
+      }
+      
+      /* Remove Default List Styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Task Card Styling */
+li {
+  background: white;
+  margin: 10px auto;
+  padding: 15px;
+  border-radius: 8px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+li:hover {
+  transform: translateY(-3px);
+}
+
+/* Task Title */
+.task-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Task Description */
+.task-description {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* Footer: Status on Left, Button on Right */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Task Status */
+.task-status {
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: bold;
+}
+
+/* Delete Button */
+li button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease-in-out;
+}
+
+li button:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  li {
+    width: 90%;
+    padding: 12px;
+  }
+  .task-title {
+    font-size: 16px;
+  }
+  .task-description {
+    font-size: 13px;
+  }
+  .task-status {
+    font-size: 11px;
+  }
+  li button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+    </style>
+  </head>
+  <body ng-controller="TaskController">
+    <h2>Task Manager</h2>
+    <form ng-submit="addTask()">
+      <input
+        type="text"
+        ng-model="newTask.title"
+        placeholder="Enter a task title"
+      />
+      <input
+        type="text"
+        ng-model="newTask.description"
+        placeholder="Enter a task description"
+      />
+      <button type="submit">Add Task</button>
+    </form>
+
+    <ul class="task-list">
+        <li class="task-card" ng-repeat="task in tasks">
+          <div class="task-header">
+            <h3 class="task-title">{{ task.title }}</h3>
+          </div>
+          <p class="task-description">{{ task.description }}</p>
+          <div class="task-footer">
+            <span class="task-status">{{ task.status }}</span>
+            <button class="delete-btn" ng-click="deleteTask(task.id)">Remove</button>
+          </div>
+        </li>
+      </ul>
+      
+
+    <button ng-click="logout()">Logout</button>
+  </body>
+</html>
